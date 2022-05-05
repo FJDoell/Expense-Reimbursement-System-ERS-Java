@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Finance Manager Home</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="/Project_1_War/resources/css/myStyles.css" type="text/css">
+</head>
+<!-- Finance Manager Home Page -->
+<!-- View pending requests here -->
+
+<body>
+	<div class="container w-100 text-white-50 bg-dark">
+		<div class="row">
+			<h1 id="head">Loading, gimme a second...</h1>
+			<!-- Header message goes here -->
+		</div>
+		<div class="row">
+			<div class="d-block
+				border-dark
+			    border border-4
+			    text-white-50 bg-dark
+			    mb-3
+			    form-horizontal">
+				<div class="mb-3 form-group">
+					<button type="button" id="showAllReimbs" class="btn btn-info btn-lg">Show All Requests</button>
+					<img id="seedLogo1" src="/Project_1_War/resources/img/RF5_SEED_Crest.webp" alt="SEED Logo" />
+				</div>
+				<div class="mb-3 form-group">
+					<label for="reimbStatus">Reimbursement Status</label>
+					<select class="form-control w-50 mb-3" name="reimbStatus" id="reimbStatus">
+						<option value="PENDING">Pending</option>
+						<option value="APPROVED">Approved</option>
+						<option value="DENIED">Denied</option>
+					</select>
+					<!-- <input type="text" id="reimbStatus"
+						name="status" class="form-control w-50 mb-3" placeholder="Pending, Approved, Denied"> -->
+					<button type="button" id="showByStatus" class="btn btn-info btn-lg">Filter
+						By Status</button>
+				</div>
+				<div class="mb-3 form-group">
+					<div>
+						<button type="button" id="appReimb" class="btn btn-success btn-lg float-end">Approve
+							Selected</button>
+					</div>
+					<div>
+						<button type="button" id="denReimb" class="btn btn-danger btn-lg float-end">Deny
+							Selected</button>
+					</div>
+				</div>
+				<form method="POST" action="/Project_1_War/logout">
+					<button type="submit" class="btn btn-primary btn-lg">Logout</button>
+				</form>
+			</div>
+		</div>
+		<div class="row text-white-50 bg-dark">
+			<!-- This is where messages go! -->
+			<h2 id="message"></h2>
+		</div>
+		<div class="table-responsive row">
+			<table class="table table-dark">
+				<thead>
+					<tr class="w-100">
+						<th scope="col" class="w-10">ID</th>
+						<th scope="col" class="w-20">Amount</th>
+						<th scope="col" class="w-20">Submitted</th>
+						<th scope="col" class="w-20">Resolved</th>
+						<th scope="col" class="w-30">Description</th>
+						<th scope="col" class="w-10">Author</th>
+						<th scope="col" class="w-10">Resolved By</th>
+						<th scope="col" class="w-10">Status</th>
+						<th scope="col" class="w-10">Type</th>
+						<th scope="col" class="w-5">Select</th>
+					</tr>
+				</thead>
+				<tbody id="tableMainBody">
+					<!--<tr> This is sample content, an example of a row
+				<th scope="row">1</th>
+				<td>Mark</td>
+				<td>Otto</td>
+				<td>@mdo</td>
+				<td><input type="radio" id="IdOfTheReimb" name="select" value="IdOfTheReim"></td>
+				All radio buttons must share the same name because we only pick
+				one reimb at a time.
+			</tr> -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/Project_1_War/resources/javascript/General.js"></script>
+	<script type="text/javascript" src="/Project_1_War/resources/javascript/Finance.js"></script>
+</body>
+
+</html>

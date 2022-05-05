@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Employee Home</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="/Project_1_War/resources/css/myStyles.css" type="text/css">
+</head>
+<!-- Add Reimbursement Request page -->
+<!-- They can also view the status of their requests here -->
+
+<body>
+	<div class="container w-100 text-white-50 bg-dark">
+		<div class="row">
+			<h1 id="head">Loading, gimme a second...</h1>
+			<!-- Header message goes here -->
+		</div>
+		<div class="row">
+			<div class="d-block
+				border-dark
+			    border border-4
+			    text-white-50 bg-dark
+			    mb-3">
+				<div class="mb-3">
+					<button type="button" id="showReimbByAuthor" class="btn btn-info">Show
+						Reimbursement Requests</button>
+					<img id="seedLogo1" src="/Project_1_War/resources/img/RF5_SEED_Crest.webp" alt="SEED Logo" />
+				</div>
+				<div class="mb-3">
+					<label for="reimbAmt" class="form-label">Reimbursement
+						Amount</label> <img id="goldIcon" src="/Project_1_War/resources/img/gold.png" alt="Gold Icon" />
+					<input type="number" id="reimbAmt" name="gold" class="form-control w-50" placeholder="Gold Amount"
+						max=2147483647 min=0 value=0>
+				</div>
+				<div class="mb-3">
+					<label for="reimbType" class="form-label">Type</label> 
+					<select class="form-control w-50 mb-3" name="reimbType" id="reimbType">
+						<option value="LODGING">Lodging</option>
+						<option value="TRAVEL">Travel</option>
+						<option value="FOOD">Food</option>
+						<option value="FAINT">Faint</option>
+						<option value="OTHER">Other</option>
+					</select>
+					<!-- <input type="text" id="reimbType" name="type"
+						class="form-control w-50" placeholder="Lodging, Travel, Food, Faint, Other"> -->
+				</div>
+				<div class="mb-3">
+					<label for="reimbDesc" class="form-label">Description</label>
+					<textarea id="reimbDesc" name="desc" class="form-control w-80"
+						placeholder="Description (250 chars max)" rows="3" maxlength="250"></textarea>
+
+				</div>
+				<div class="mb-3">
+					<button type="button" id="addReimb" class="btn btn-success">Submit
+						Reimbursement Request</button>
+				</div>
+
+				<form method="POST" action="/Project_1_War/logout">
+					<button type="submit" class="btn btn-primary btn-lg">Logout</button>
+				</form>
+			</div>
+		</div>
+		<div class="row text-white-50 bg-dark">
+			<!-- This is where messages go! -->
+			<h2 id="message"></h2>
+		</div>
+		<div class="table-responsive row">
+			<table class="table table-dark">
+				<thead>
+					<tr class="w-100">
+						<th scope="col" class="w-10">ID</th>
+						<th scope="col" class="w-20">Amount</th>
+						<th scope="col" class="w-20">Submitted</th>
+						<th scope="col" class="w-20">Resolved</th>
+						<th scope="col" class="w-30">Description</th>
+						<th scope="col" class="w-10">Author</th>
+						<th scope="col" class="w-10">Resolved By</th>
+						<th scope="col" class="w-10">Status</th>
+						<th scope="col" class="w-10">Type</th>
+					</tr>
+				</thead>
+				<tbody id="tableMainBody">
+					<!--<tr> This is sample content, an example of a row
+				<th scope="row">1</th>
+				<td>Mark</td>
+				<td>Otto</td>
+				<td>@mdo</td>
+			</tr> -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/Project_1_War/resources/javascript/General.js"></script>
+	<script type="text/javascript" src="/Project_1_War/resources/javascript/Employee.js"></script>
+</body>
+
+</html>
