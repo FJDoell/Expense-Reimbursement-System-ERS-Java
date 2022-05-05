@@ -31,10 +31,13 @@ List of features ready and TODOs for future development
 * Add H2 database dependency for local testing purposes.
 
 ## Getting Started
-You will need the database credentials, which are stored in my local environment variables. Please request them for the database functionality to work.
+You will need the database credentials, which are stored in my local environment variables. Please request and then set them for the database functionality to work.
 
 ## Usage
-Here, you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
+* Login with preset credentials, how these credentials are passed to you is up to your manager.
+* Employee: The page will start by loading all reimbursements submitted by you. To submit a request, select a type, amount in gold, optionally add a description, and then submit.
+* Finance Manager: The page will start by loading reimbursements by "Pending" status. Select a status and click "filter by status" to show only reimbursements with that status type. 
+* Finance Manager: To deny or approve a reimbursement, select a pending reimbursement via the selector in the table, then click "Deny" or "Approve" buttons respectively.
 
 ## License
 This project uses the following license: MIT license.
