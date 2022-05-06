@@ -75,7 +75,7 @@ public class Reimbursement {
 		this.id = id;
 		this.amount = amount;
 		this.submitted = submitted;
-		this.resolved = resolved.toString();
+		this.resolved = resolved;
 		this.description = description;
 		this.author = author;
 		this.resolver = resolver;
