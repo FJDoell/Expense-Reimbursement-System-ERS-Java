@@ -125,7 +125,7 @@ public class TestReimbDao {
 	@Test
 	void testNoArgConstructor() {
 		// Test
-		myReimbDao = new ReimbursementDao(allReimbs);
+		myReimbDao = new ReimbursementDao();
 		
 		// Assert
 		assertEquals(noReimbs, myReimbDao.getAll(), "No args constructor test");
