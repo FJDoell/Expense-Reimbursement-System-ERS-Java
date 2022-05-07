@@ -13,14 +13,15 @@ import org.junit.jupiter.api.TestInstance;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import model.Reimbursement;
-import model.User;
 import service.JsonHandler;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestJsonHandler {
 	JsonHandler<User> myJsonHandUser;
 	JsonHandler<Reimbursement> myJsonHandReimb;
+	JsonHandler<User> myJsonHandUser2;
+	JsonHandler<Reimbursement> myJsonHandReimb2;
+	JsonHandler<User> myEmptyJsonHand;
 	User testUser1;
 	User testUser2;
 	Reimbursement testReimb1;
@@ -72,6 +73,9 @@ public class TestJsonHandler {
 	@BeforeEach public void setUp() throws Exception {
 		myJsonHandUser = new JsonHandler<User>(myUserTree);
 		myJsonHandReimb = new JsonHandler<Reimbursement>(myReimbTree);
+		myJsonHandUser2 = new JsonHandler<User>(myUserList);
+		myJsonHandReimb2 = new JsonHandler<Reimbursement>(myReimbList);
+		myEmptyJsonHand = new JsonHandler<User>();
 	}
 	
 	@Test
@@ -81,10 +85,41 @@ public class TestJsonHandler {
 		// execute
 		String jsonStringUser = myJsonHandUser.mapToJSON();
 		String jsonStringReimb = myJsonHandReimb.mapToJSON();
+		String expectedTreeUserJson = mapper.writeValueAsString(myUserTree);
+		String expectedTreeReimbJson = mapper.writeValueAsString(myReimbTree);
+		System.out.println("Expected map to JSON Format: " + expectedTreeUserJson);
 		
 		// assert
-		assertEquals(mapper.writeValueAsString(myUserTree), jsonStringUser, "Test map to JSON user");
-		assertEquals(mapper.writeValueAsString(myReimbTree), jsonStringReimb, "Test map to JSON reimbursement");
+		assertEquals(expectedTreeUserJson, jsonStringUser, "Test MAP to JSON user");
+		assertEquals(expectedTreeReimbJson, jsonStringReimb, "Test MAP to JSON reimbursement");
+	}
+	
+	@Test
+	public void testListToJSON() throws JsonProcessingException {
+		// set up
+		
+		// execute
+		String jsonStringUser = myJsonHandUser2.listToJSON();
+		String jsonStringReimb = myJsonHandReimb2.listToJSON();
+		String expectedListUserJson = mapper.writeValueAsString(myUserList);
+		String expectedListReimbJson = mapper.writeValueAsString(myReimbList);
+		
+		// assert
+		assertEquals(expectedListUserJson, jsonStringUser, "Test LIST to JSON user");
+		assertEquals(expectedListReimbJson, jsonStringReimb, "Test LIST to JSON reimbursement");
+	}
+	
+	@Test
+	public void testEmptyJSON() {
+		// set up
+		
+		// execute
+		String jsonStringUser = myEmptyJsonHand.mapToJSON();
+		String jsonStringReimb = myEmptyJsonHand.mapToJSON();
+		
+		// assert
+		assertEquals("{}", jsonStringUser, "Test map to JSON user null");
+		assertEquals("{}", jsonStringReimb, "Test map to JSON reimbursement null");
 	}
 	
 }
